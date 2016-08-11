@@ -1,0 +1,6 @@
+import selenium.webdriver.common.alert
+
+alert = driver.switch_to_alert()
+alert.accept()
+# or
+alert.dismiss()
