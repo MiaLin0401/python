@@ -1,0 +1,29 @@
+#判斷中文英文數字
+def charcode(sentence):
+    chlist=''
+    eng = ''
+    num = ''
+    for ch in sentence:#.decode('utf-8'):
+
+        #判斷是否為中文
+        if u'\u4e00' <= ch <= u'\u9fff':
+            if len(eng)!=0:
+                chlist = chlist + eng + ','
+                chlist = chlist + ch + ','
+                eng = ''
+
+            elif len(num)!=0:
+                chlist = chlist + num + ','
+                chlist = chlist + ch + ','
+                num = ''
+
+            else:
+                chlist = chlist + ch + ','
+        #判斷是否為英文
+        elif (u'\u0041' <= ch<=u'\u005a') or (u'\u0061' <= ch<=u'\u007a'):
+            eng = eng+ch.lower()
+
+        #判斷是否為數字
+        elif u'\u0030' <=ch<=u'\u0039':
+            num = num+ch
+    return chlist
