@@ -1,0 +1,8 @@
+import re
+
+def remove_urls (vTEXT):
+    vTEXT = re.sub(r'(https|http)?:\/\/(\w|\.|\/|\?|\=|\&|\%)*\b', '', vTEXT, flags=re.MULTILINE)
+    return(vTEXT)
+
+if __name__ == '__main__':
+    corpus = remove_urls(corpus)
